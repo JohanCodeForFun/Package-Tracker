@@ -1,3 +1,23 @@
+
+
+// (\d{4})
+
+const testArr = [1234, 1234, 5678, 5678, 7890, 7890];
+
+const trackerRegex = /[0-9§] /;
+
+function trackPackage() {
+    let input = +document.getElementById('trackerInput').value;
+    for (i = 0; i < testArr.length; i++) {
+        if (testArr[i] === input) {
+            console.log(testArr[i]);
+            return;
+        }
+    }
+    console.log(testArr);
+    console.log('value not found');
+};
+
 const packages = {
     Package1: {
         FirstName: 'John',
