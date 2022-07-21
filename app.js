@@ -23,10 +23,11 @@ function trackPackage() {
             // console.log('Your shipment id is: ' + testArr[i]);
             console.log('Your package is: ' + findFirstPackage);
             console.log('label: ' + findFirstPackage);
+            console.log('Status: ' + findFirstPackage);
             return;
         }
     }
-    console.log('value not found');
+    console.log('Package not found');
 };
 
 const packages = {
@@ -99,6 +100,9 @@ const packages = {
 console.log(packages.Package1.Delivered);
 console.log(packages.Package2.Delivered);
 console.log(packages.Package3.Delivered);
+
+const getPackage = packages.Package1.find(pack => packages.Package1.TrackerID === 1234567890);
+console.log('get package: ' + getPackage);
 
 
 
