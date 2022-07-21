@@ -17,12 +17,19 @@
 
     <main>
         <h1>Welcome to Package Tracker </h1>
-        <input type="Write your shipment id (last 4)">
+        <label for="trackerDescription">Write your shipment id (last 4) or your name.</label><br>
+        <input type="text" placeholder="Enter shipment #id" id="trackerInput" minlength="4" maxlength="13" >
         <button>Track Package</button>
 
-        <div>
+        <div id="trackerContainer">
             <p>Status:</p>
         </div>
+
+
+        <article>
+            <H3>Is your package late?</H3>
+            <p>Please contact our customer support for help.</p>
+        </article>
 
     </main>
 </body>
