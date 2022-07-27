@@ -1,36 +1,6 @@
 'use strict';
 
-// (\d{4})
 
-const testArr = [1234, 1234, 5678, 5678, 7890, 7890];
-
-
-const includesPackageID = testArr.includes(1234);
-
-
-console.log('Includes Package ID: ' + includesPackageID);
-
-const trackerRegex = /[0-9§] /;
-
-
-
-function trackPackage() {
-    // const searchIndex = packages.findIndex((package) => packages.Package1.TrackerID === 1234567890);
-    // console.log (`TrackerID is: ${packages[searchIndex].TrackerID}`)
-    
-    let input = +document.getElementById('trackerInput').value;
-    for (i = 0; i < testArr.length; i++) {
-        if (packages[i] === input) {
-            const findFirstPackage = testArr.find(element => element => input);
-            console.log('Your shipment id is: ' + testArr[i]);
-            console.log('Your package is: ' + findFirstPackage);
-            console.log('label: ' + findFirstPackage);
-            console.log('Status: ' + findFirstPackage);
-            return;
-        }
-    }
-    console.log('Package not found');
-};
 
 const packages = {
     Package1: {
@@ -100,35 +70,10 @@ const packages = {
     }
 };
 
-for (let propertyName in packages.Package1.Delivered) {
-    console.log(propertyName);
-}
-
-// for (let key in packages) {
-//     console.log(key);
-//     console.log(packages[key]);
-// }
-
-const getTrackerID = function(obj) {
-    for (let i = 0; i < packages.length; i++) {
-
-    }
-    return Object.values(obj).filter(val => !isNaN(val) &&
-        typeof val !== 'boolean');
-}
-
-let packadeID = getTrackerID(packages.Package3);
-console.log(packadeID);
-
-// packages.forEach(packageCollect => {
-//     for (let key in packageCollect) {
-//         console.log(`${key}: ${packageCollect[key]}`);
-//     }
-// });
 
 
 
-// // working for each module
+// working for each module
 // const mobiles = [
 //     {
 //         brand: 'Samsung',
@@ -157,14 +102,3 @@ console.log(packadeID);
 // console.log('Getting data from packages>package2>Delivery: ' + packages.Package2.Delivered);
 // console.log('Getting data from packages>package3>Delivery: ' + packages.Package3.Delivered);
 // console.log('How do I grab this with a loop?');
-
-// const getPackage = packages.Package1.find(pack => packages.Package1.TrackerID === 1234567890);
-// console.log('get package: ' + getPackage);
-
-
-
-// const findPackage = Array.from(packages.Package9.TrackerID).indexOf(1234567890);
-// console.log(findPackage);
-
-// const result = packages.filter(package => package);
-// console.log(result);
