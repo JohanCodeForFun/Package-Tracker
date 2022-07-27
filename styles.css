@@ -7,3 +7,11 @@ nav {
 article {
     padding-top: 20px;
 }
+
+#trackerContainer {
+    border: 6px solid firebrick;
+    background-color: salmon;
+    border-radius: 8px;
+    margin: 2px;
+    padding: 6px;
+}
