@@ -70,6 +70,25 @@ const packages = [
     }
 ];
 
+function trackPackage() {
+    let input = +document.getElementById('trackerInput').value;
+    for (let i = 0; i < packages.length; i++) {
+        if (packages[i].TrackerID == input) {
+            console.log(packages[i].FirstName + ', ' +packages[i].Label)
+        } 
+        // else if (packages[i].TrackerID !== 12345678909) {
+        //     return console.log('package not found');
+        // }
+    } 
+
+};
+
+// for (let i = 0; i < packages.length; i++) {
+//     if (packages[i].TrackerID === 12345678909) {
+//         console.log(packages[i].FirstName + ', ' +packages[i].Label)
+//     }
+// }
+
 
 
 
