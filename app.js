@@ -2,8 +2,8 @@
 
 
 
-const packages = {
-    Package1: {
+const packages = [
+    {
         FirstName: 'John',
         Label: 'Toys 4 kids',
         Status: 'Handling...',
@@ -12,63 +12,63 @@ const packages = {
         // how do I update status depending in deliveried true or false?
         isStatus() {return this.Delivered ;}
     },
-    Package2: {
+    {
         FirstName: 'Charlie',
         Label: 'Plush toy',
         Status: 'Handling...',
         TrackerID: 12345678902,
         Delivered: false
     },
-    Package3: {
+    {
         FirstName: 'Johnny',
         Label: 'Photo frames',
         Status: 'Delivered',
         TrackerID: 12345678903,
         Delivered: true
     },
-    Package4: {
+    {
         FirstName: 'Sandra',
         Label: 'Toys 4 kids',
         Status: 'Handling...',
         TrackerID: 12345678904,
         Delivered: false
     },
-    Package5: {
+    {
         FirstName: 'Tina',
         Label: 'Plush toy',
         Status: 'Handling...',
         TrackerID: 12345678905,
         Delivered: false
     },
-    Package6: {
+    {
         FirstName: 'Eva',
         Label: 'Books',
         Status: 'Handling...',
         TrackerID: 12345678906,
         Delivered: false
     },
-    Package7: {
+    {
         FirstName: 'Anne',
         Label: 'Car accesorie',
         Status: 'Handling...',
         TrackerID: 12345678907,
         Delivered: false
     },
-    Package8: {
+    {
         FirstName: 'Sammy',
         Label: 'Books',
         Status: 'Handling...',
         TrackerID: 12345678908,
         Delivered: false
     },
-    Package9: {
+    {
         FirstName: 'Johnathan',
         Label: 'Massage kit',
         Status: 'Handling...',
         TrackerID: 12345678909,
         Delivered: false
     }
-};
+];
 
 
 
