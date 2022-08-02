@@ -1,7 +1,5 @@
 'use strict';
 
-
-
 const packages = [
     {
         FirstName: 'John',
