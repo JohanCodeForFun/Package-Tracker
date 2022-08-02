@@ -68,13 +68,17 @@ const packages = [
     }
 ];
 
-function trackPackage() {
-    let input = +document.getElementById('trackerInput').value;
-    for (let i = 0; i < packages.length; i++) {
-        if (packages[i].TrackerID === input) {
-            return console.log(packages[i].FirstName + ', ' +packages[i].Label)
-        } 
-    } return console.log('package not found');
+function trackPackage(input) {
+    input = +document.getElementById('trackerInput').value;
+    console.log(input)
+    console.log(packages.find(({TrackerID}) => TrackerID === input)) 
+
+    // let input = +document.getElementById('trackerInput').value;
+    // for (let i = 0; i < packages.length; i++) {
+    //     if (packages[i].TrackerID === input) {
+    //         return console.log(packages[i].FirstName + ', ' +packages[i].Label)
+    //     } 
+    // } return console.log('package not found');
 };
 
 
