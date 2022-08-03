@@ -9,14 +9,17 @@
 </head>
 <body>
     <script src="app.js" defer></script>
+    <section class="fill-page">
     <nav>
-        <a href="#">About</a>
-        <a href="#">Home</a>
-        <a href="#">Profile</a>
-    </nav>
-
-    <main>
         <h1>Welcome to Package Tracker </h1>
+        <div class="nav-links">
+            <a href="#">About</a>
+            <a href="#">Home</a>
+            <a href="#">Profile</a>
+    </nav>
+    
+    <main>
+
         <label for="trackerDescription">Write your shipment id (full or last 4).</label><br>
         <input type="text" placeholder="Enter shipment #id" id="trackerInput" minlength="4" maxlength="13" >
         <button onclick="trackPackage()">Track Package</button>
@@ -29,13 +32,18 @@
             <p id="trackerID"></p>
             <p id="delivered"></p>
         </div>
-
-
-        <article>
-            <H3>Is your package late?</H3>
-            <p>Please contact our customer support for help.</p>
-        </article>
-
-    </main>
+    
+            <article>
+                <H3>Is your package late?</H3>
+                <p>Please contact our customer support for help.</p>
+            </article>
+    
+        </main>
+    
+        <footer>
+            copyrigth 
+        </footer>
+        </section>
+     
 </body>
 </html>
