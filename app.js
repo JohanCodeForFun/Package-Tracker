@@ -7,8 +7,6 @@ const packages = [
         Status: 'Handling...',
         TrackerID: 12345678901,
         Delivered: false,
-        // how do I update status depending in deliveried true or false?
-        isStatus() {return this.Delivered ;}
     },
     {
         FirstName: 'Charlie',
@@ -34,9 +32,9 @@ const packages = [
     {
         FirstName: 'Tina',
         Label: 'Plush toy',
-        Status: 'Handling...',
+        Status: 'Shipped from storage',
         TrackerID: 12345678905,
-        Delivered: false
+        Delivered: true
     },
     {
         FirstName: 'Eva',
@@ -48,9 +46,9 @@ const packages = [
     {
         FirstName: 'Anne',
         Label: 'Car accesorie',
-        Status: 'Handling...',
+        Status: 'Delivered',
         TrackerID: 12345678907,
-        Delivered: false
+        Delivered: true
     },
     {
         FirstName: 'Sammy',
@@ -61,51 +59,27 @@ const packages = [
     },
     {
         FirstName: 'Johnathan',
-        Label: 'Massage kit',
+        Label: 'Books',
         Status: 'Handling...',
         TrackerID: 12345678909,
         Delivered: false
     }
 ];
 
-function trackPackage() {
-    let input = +document.getElementById('trackerInput').value;
-    for (let i = 0; i < packages.length; i++) {
-        if (packages[i].TrackerID === input) {
-            return console.log(packages[i].FirstName + ', ' +packages[i].Label)
-        } 
-    } return console.log('package not found');
+function trackPackage(input) {
+    input = +document.getElementById('trackerInput').value;
+
+    if (packages.find(({TrackerID}) => TrackerID === input)) {
+        const packageData = packages.find(({TrackerID}) => TrackerID === input);
+        document.getElementById('desc').textContent = 'Package details: ';
+        document.getElementById('firstName').textContent = 'First name: ' + packageData.FirstName;
+        document.getElementById('label').textContent = 'Contents: ' + packageData.Label;
+        document.getElementById('status').textContent = 'Status: ' + packageData.Status;
+        document.getElementById('delivered').textContent = 'Delivered: ' + packageData.Delivered;
+        document.getElementById('trackerID').textContent = 'TrackerID: ' + packageData.TrackerID;
+        return packageData;
+    } else {
+        document.getElementById('desc').textContent = 'Package not found.';
+        document.getElementById('status').textContent = 'Try again or contact support for help.';
+    }
 };
-
-
-
-
-// working for each module
-// const mobiles = [
-//     {
-//         brand: 'Samsung',
-//         model: 'Galaxy Note 9'
-//     },
-//     {
-//         brand: 'Google',
-//         model: 'Pixel 3'
-//     },
-//     {
-//         brand: 'Apple',
-//         model: 'iPhone X'
-//     }
-// ];
-
-// mobiles.forEach(mobile => {
-//     for (let key in mobile) {
-//         console.log(`${key}: ${mobile[key]}`);
-//     }
-// });
-
-
-
-// Getting data from correct package
-// console.log('Getting data from packages>package1>Delivery: ' + packages.Package1.Delivered);
-// console.log('Getting data from packages>package2>Delivery: ' + packages.Package2.Delivered);
-// console.log('Getting data from packages>package3>Delivery: ' + packages.Package3.Delivered);
-// console.log('How do I grab this with a loop?');
