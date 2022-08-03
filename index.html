@@ -17,17 +17,17 @@
 
     <main>
         <h1>Welcome to Package Tracker </h1>
-        <label for="trackerDescription">Write your shipment id (last 4) or your name.</label><br>
+        <label for="trackerDescription">Write your shipment id (full or last 4).</label><br>
         <input type="text" placeholder="Enter shipment #id" id="trackerInput" minlength="4" maxlength="13" >
         <button onclick="trackPackage()">Track Package</button>
 
         <div id="trackerContainer">
-            <p>Package Details:</p>
-            <p id="firstName">First name, </p>
-            <p id="label">Label, </p>
-            <p id="status">Status, </p>
-            <p id="trackerID">TrackerID, </p>
-            <p id="delivered">Delivered, </p>
+            <p id="desc">Input your trackerID for package details.</p>
+            <p id="firstName"></p>
+            <p id="label"></p>
+            <p id="status"></p>
+            <p id="trackerID"></p>
+            <p id="delivered"></p>
         </div>
 
 
