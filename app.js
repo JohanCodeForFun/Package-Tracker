@@ -80,6 +80,10 @@ function trackPackage(input) {
         return packageData;
     } else {
         document.getElementById('desc').textContent = 'Package not found.';
+        document.getElementById('firstName').textContent = '';
+        document.getElementById('label').textContent = '';
         document.getElementById('status').textContent = 'Try again or contact support for help.';
+        document.getElementById('delivered').textContent = '';
+        document.getElementById('trackerID').textContent = '';
     }
 };
