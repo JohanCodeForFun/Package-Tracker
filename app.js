@@ -69,21 +69,31 @@ const packages = [
 function trackPackage(input) {
     input = +document.getElementById('trackerInput').value;
 
+    const progressBar = document.querySelector('.progress-bar');
+    progressBar.setAttribute('id', 'play-animation');
+
     if (packages.find(({TrackerID}) => TrackerID === input)) {
-        const packageData = packages.find(({TrackerID}) => TrackerID === input);
-        document.getElementById('desc').textContent = 'Package details: ';
-        document.getElementById('firstName').textContent = 'First name: ' + packageData.FirstName;
-        document.getElementById('label').textContent = 'Contents: ' + packageData.Label;
-        document.getElementById('status').textContent = 'Status: ' + packageData.Status;
-        document.getElementById('delivered').textContent = 'Delivered: ' + packageData.Delivered;
-        document.getElementById('trackerID').textContent = 'TrackerID: ' + packageData.TrackerID;
-        return packageData;
+
+        setTimeout(() => {
+            const packageData = packages.find(({TrackerID}) => TrackerID === input);
+            document.getElementById('desc').textContent = 'Package details: ';
+            document.getElementById('firstName').textContent = 'First name: ' + packageData.FirstName;
+            document.getElementById('label').textContent = 'Contents: ' + packageData.Label;
+            document.getElementById('status').textContent = 'Status: ' + packageData.Status;
+            document.getElementById('delivered').textContent = 'Delivered: ' + packageData.Delivered;
+            document.getElementById('trackerID').textContent = 'TrackerID: ' + packageData.TrackerID;
+            return packageData;
+        
+        }, 3000);
+
     } else {
-        document.getElementById('desc').textContent = 'Package not found.';
-        document.getElementById('firstName').textContent = '';
-        document.getElementById('label').textContent = '';
-        document.getElementById('status').textContent = 'Try again or contact support for help.';
-        document.getElementById('delivered').textContent = '';
-        document.getElementById('trackerID').textContent = '';
+        setTimeout(() => {
+            document.getElementById('desc').textContent = 'Package not found.';
+            document.getElementById('firstName').textContent = '';
+            document.getElementById('label').textContent = '';
+            document.getElementById('status').textContent = 'Try again or contact support for help.';
+            document.getElementById('delivered').textContent = '';
+            document.getElementById('trackerID').textContent = '';
+        }, 3000);      
     }
 };
