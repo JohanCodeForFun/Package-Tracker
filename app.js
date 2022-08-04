@@ -68,7 +68,13 @@ const packages = [
 
 function trackPackage(input) {
     input = +document.getElementById('trackerInput').value;
+
+        //reset fields with multiple searches
     document.getElementById('status').textContent = '';
+    document.getElementById('firstName').textContent = '';
+    document.getElementById('label').textContent = '';
+    document.getElementById('delivered').textContent = '';
+    document.getElementById('trackerID').textContent = '';
 
     const progressBar = document.querySelector('.progress-bar');
     progressBar.setAttribute('id', 'play-animation');
