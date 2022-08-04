@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,49 +8,47 @@
     <title>Package Tracker</title>
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
     <script src="app.js" defer></script>
     <section class="fill-page">
-    <nav>
-        <h1>Welcome to Package Tracker </h1>
-        <div class="nav-links">
-            <a href="#">About</a>
-            <a href="#">Home</a>
-            <a href="#">Profile</a>
-    </nav>
-    
-    <main>
+        <nav>
+            <h1>Welcome to Package Tracker </h1>
+            <div class="nav-links">
+                <a href="#">About</a>
+                <a href="#">Home</a>
+                <a href="#">Package</a>
+            </div>
+        </nav>
+
         <div id="searchContainer">
             <div id="search">
                 <label for="trackerDescription">Write your shipment id (full or last 4).</label><br>
-                <input type="text" placeholder="Enter shipment #id" id="trackerInput" minlength="4" maxlength="13" >
+                <input type="text" placeholder="Enter shipment #id" id="trackerInput" minlength="4" maxlength="13">
                 <button onclick="trackPackage()">Track Package</button>
             </div>
         </div>
-    
-            <div id="trackerContainer">
-                <p id="desc">Input your trackerID for package details.</p>
-                <p id="firstName"></p>
-                <p id="label"></p>
-                <p id="status"></p>
-                <p id="trackerID"></p>
-                <p id="delivered"></p>
-            </div>
 
+        <div id="trackerContainer">
+            <p id="desc">Input your trackerID for package details.</p>
+            <p id="firstName"></p>
+            <p id="label"></p>
+            <p id="status"></p>
+            <p id="trackerID"></p>
+            <p id="delivered"></p>
+        </div>
 
+        <article>
+            <H3>Is your package late?</H3>
+            <p>Please contact our customer support for help.</p>
+        </article>
 
-    
-            <article>
-                <H3>Is your package late?</H3>
-                <p>Please contact our customer support for help.</p>
-            </article>
-    
-        </main>
-    
         <footer>
             COPYRIGHT &copy; 2022
         </footer>
-        </section>
-     
+
+    </section>
+
 </body>
+
 </html>
