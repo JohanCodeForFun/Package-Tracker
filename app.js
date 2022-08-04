@@ -68,15 +68,21 @@ const packages = [
 
 function trackPackage(input) {
     input = +document.getElementById('trackerInput').value;
+    document.getElementById('status').textContent = '';
 
     const progressBar = document.querySelector('.progress-bar');
     progressBar.setAttribute('id', 'play-animation');
+
+    const descPackage = document.getElementById('desc')
+    descPackage.textContent = 'Searching package...';
+    descPackage.setAttribute('id', 'play-loading');
 
     if (packages.find(({TrackerID}) => TrackerID === input)) {
 
         setTimeout(() => {
             const packageData = packages.find(({TrackerID}) => TrackerID === input);
-            document.getElementById('desc').textContent = 'Package details: ';
+            descPackage.textContent = 'Package details: ';
+            descPackage.setAttribute('id', 'desc');
             document.getElementById('firstName').textContent = 'First name: ' + packageData.FirstName;
             document.getElementById('label').textContent = 'Contents: ' + packageData.Label;
             document.getElementById('status').textContent = 'Status: ' + packageData.Status;
@@ -88,7 +94,8 @@ function trackPackage(input) {
 
     } else {
         setTimeout(() => {
-            document.getElementById('desc').textContent = 'Package not found.';
+            descPackage.textContent = 'Package not found.';
+            descPackage.setAttribute('id', 'desc');
             document.getElementById('firstName').textContent = '';
             document.getElementById('label').textContent = '';
             document.getElementById('status').textContent = 'Try again or contact support for help.';
