@@ -1,0 +1,20 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.flexcontainer {
+    display: flex;
+    flex-direction: column;
+    background-color: aqua;
+    height: 100vh;
+    border: 2px black;
+}
+
+nav {flex: 0.4;
+    background-color: blueviolet;}
+.search {    flex: 0.8;}
+.result { flex: 2;}
+.desc {flex: 4;}
+footer {flex: 0.4;}
