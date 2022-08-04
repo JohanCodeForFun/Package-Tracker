@@ -88,12 +88,17 @@ button, input {
 
 
 #play-animation {animation: progress-animation 2.5s forwards;}
-#play-loading   {animation: text-animation 2.5s ease-in-out infinite;
+#play-loading   {animation: text-animation 1.2s ease-in-out infinite;
 font-weight: 700;}
 
 @keyframes progress-animation {
     0% {width: 0%;}
     100% {width: 100%;}
+}
+
+@keyframes text-animation {
+    0% {opacity: 0;}
+    50% {opacity: 0.5;}
 }
 
 
