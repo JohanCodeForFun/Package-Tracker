@@ -66,6 +66,7 @@ const packages = [
     }
 ];
 
+
 function trackPackage(input) {
     input = +document.getElementById('trackerInput').value;
 
@@ -75,9 +76,6 @@ function trackPackage(input) {
     document.getElementById('label').textContent = '';
     document.getElementById('delivered').textContent = '';
     document.getElementById('trackerID').textContent = '';
-
-    const progressBar = document.querySelector('.progress-bar');
-    progressBar.setAttribute('id', 'play-animation');
 
     const descPackage = document.getElementById('desc')
     descPackage.textContent = 'Searching package...';
@@ -109,4 +107,33 @@ function trackPackage(input) {
             document.getElementById('trackerID').textContent = '';
         }, 3000);      
     }
+};
+
+// function to show and hide loading bar
+
+
+function onLoadStyle() {
+    document.querySelector('#progress-container').style.display='none';
+    document.querySelector('#progress-bar').style.display='none';
+}
+
+let restartButton = document.querySelector('#restartAnimation');
+restartButton.addEventListener('click', restartAnimation, false);
+
+function restartAnimation(event) {
+    const progressBar = document.querySelector('.progress-bar');
+
+    progressBar.setAttribute('id', 'filler');
+    document.getElementById('#progress-container').style.display='';
+    document.getElementsByClassName('#progress-bar').style.display='';
+    
+
+    requestAnimationFrame(() => {
+        progressBar.setAttribute('id', 'play-animation');
+
+        setTimeout(() => {
+            progressBarContainer.style.display='none';
+            progressBarLoading.style.display='none';
+        }, 3000);
+    })
 };

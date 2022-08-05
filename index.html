@@ -24,13 +24,13 @@
             <div id="search">
                 <label for="trackerDescription">Write your shipment id (full or last 4).</label><br>
                 <input type="text" placeholder="Enter shipment #id" id="trackerInput" minlength="4" maxlength="13">
-                <button onclick="trackPackage()">Track Package</button>
+                <button onclick="trackPackage()" id="restartAnimation">Track Package</button>
             </div>
         </div>
 
         <div id="trackerContainer">
-            <div class="progress-container">
-                <div class="progress-bar"></div>
+            <div id="progress-container">
+                <div id="progress-bar"></div>
             </div>
             <p id="desc" class="text-loading">Input your trackerID for package details.</p>
             <p id="firstName"></p>
@@ -50,7 +50,7 @@
         </footer>
 
     </section>
-
+    <body onload="onLoadStyle()"></body>
 </body>
 
 </html>
