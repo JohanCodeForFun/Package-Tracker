@@ -66,8 +66,24 @@ const packages = [
     }
 ];
 
+
 function trackPackage(input) {
     input = +document.getElementById('trackerInput').value;
+
+    const filteredPackages = packages.find(x => {
+        const id = x.TrackerID.toString();
+        const lastFourDigits = id.slice(-4);
+        // console.log(lastFourDigits);
+        const lastFourDigitsIndex = lastFourDigits.indexOf(input, 0)
+        console.log(lastFourDigitsIndex);
+        // console.log(lastFourDigits.indexOf(input, 0));
+
+
+        
+
+
+        // return lastFourDigits === input;
+    });
 
     if (packages.find(({TrackerID}) => TrackerID === input)) {
         const packageData = packages.find(({TrackerID}) => TrackerID === input);
@@ -87,3 +103,13 @@ function trackPackage(input) {
         document.getElementById('trackerID').textContent = '';
     }
 };
+
+// // practice regex
+// let str1 = "God helps those who help themselves";
+// let str2 = "You can't expect everyone to like you";
+// let num = 121134;
+// let testRegex = /help/;
+// let testRegex2 = /\d{4}$/
+// console.log(testRegex.test(str1)); //returns true
+// console.log(testRegex.test(str2)); //returns false
+// console.log('last4: ' + testRegex2.test(packages.TrackerID));
