@@ -73,17 +73,11 @@ function trackPackage(input) {
     const filteredPackages = packages.find(x => {
         const id = x.TrackerID.toString();
         const lastFourDigits = id.slice(-4);
-        // console.log(lastFourDigits);
-        const lastFourDigitsIndex = lastFourDigits.indexOf(input, 0)
-        console.log(lastFourDigitsIndex);
-        // console.log(lastFourDigits.indexOf(input, 0));
-
-
-        
-
-
-        // return lastFourDigits === input;
+        return Number(lastFourDigits) === input;
     });
+
+    let lastFourResult = filteredPackages;
+    console.log(lastFourResult);
 
     if (packages.find(({TrackerID}) => TrackerID === input)) {
         const packageData = packages.find(({TrackerID}) => TrackerID === input);
