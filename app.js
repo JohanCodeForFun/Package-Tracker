@@ -77,7 +77,6 @@ function trackPackage(input) {
     });
 
     let lastFourResult = filteredPackages;
-    console.log(lastFourResult);
 
     if (packages.find(({TrackerID}) => TrackerID === input)) {
         const packageData = packages.find(({TrackerID}) => TrackerID === input);
@@ -96,6 +95,13 @@ function trackPackage(input) {
         document.getElementById('delivered').textContent = '';
         document.getElementById('trackerID').textContent = '';
     }
+
+    document.getElementById('desc').textContent = 'Package details: ';
+    document.getElementById('firstName').textContent = 'First name: ' + lastFourResult.FirstName;
+    document.getElementById('label').textContent = 'Contents: ' + lastFourResult.Label;
+    document.getElementById('status').textContent = 'Status: ' + lastFourResult.Status;
+    document.getElementById('delivered').textContent = 'Delivered: ' + lastFourResult.Delivered;
+    document.getElementById('trackerID').textContent = 'TrackerID: ' + lastFourResult.TrackerID;
 };
 
 // // practice regex
