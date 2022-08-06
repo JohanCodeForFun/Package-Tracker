@@ -13,17 +13,25 @@
     <script src="app.js" defer></script>
     <section class="fill-page">
         <nav>
-            <h1>Welcome to Package Tracker </h1>
-            <div class="nav-links">
-                <a href="#">About</a>
-                <a href="#">Home</a>
-                <a href="#">Package</a>
+            <h1>Package Tracker</h1>
+            <div class="nav-links dropdown" data-dropdown>
+                <a href="#" class="link" data-dropdown-link>About</a>
+                <div class="dropdown-menu about">
+                    About this page
+                </div>
+            </div>
+                <div class="nav-links dropdown" data-dropdown>
+                    <a href="#" class="link" data-dropdown-link>Packages</a>
+                    <div class="dropdown-menu packages-grid" data-dropdown>
+                        Package informatin
+                    </div>
+                </div>
             </div>
         </nav>
 
         <div id="searchContainer">
             <div id="search">
-                <label for="trackerDescription">Write your shipment id (full or last 4).</label><br>
+                <label for="trackerDescription">Write your TrackerID (full or last 4).</label><br>
                 <input type="text" placeholder="Enter shipment #id" id="trackerInput" minlength="4" maxlength="13">
                 <button onclick="trackPackage()">Track Package</button>
             </div>

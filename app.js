@@ -1,5 +1,21 @@
 'use strict';
 
+document.addEventListener("click", e => {
+    const isDropdownButton = e.target.matches("[data-dropdown-link]");
+    if (!isDropdownButton && e.target.closest("[data-dropdown]") != null) return;
+  
+    let currentDropdown;
+    if (isDropdownButton) {
+      currentDropdown = e.target.closest("[data-dropdown]");
+      currentDropdown.classList.toggle("active");
+    }
+  
+    document.querySelectorAll("[data-dropdown].active").forEach(dropdown => {
+      if (dropdown === currentDropdown) return;
+      dropdown.classList.remove("active");
+    });
+  });
+
 const packages = [
     {
         FirstName: 'John',
@@ -66,24 +82,74 @@ const packages = [
     }
 ];
 
+
 function trackPackage(input) {
     input = +document.getElementById('trackerInput').value;
 
+        //reset fields with multiple searches
+    document.getElementById('status').textContent = '';
+    document.getElementById('firstName').textContent = '';
+    document.getElementById('label').textContent = '';
+    document.getElementById('delivered').textContent = '';
+    document.getElementById('trackerID').textContent = '';
+
+    const descPackage = document.getElementById('desc')
+    descPackage.textContent = 'Searching package...';
+    descPackage.setAttribute('id', 'play-loading');
+
     if (packages.find(({TrackerID}) => TrackerID === input)) {
-        const packageData = packages.find(({TrackerID}) => TrackerID === input);
-        document.getElementById('desc').textContent = 'Package details: ';
-        document.getElementById('firstName').textContent = 'First name: ' + packageData.FirstName;
-        document.getElementById('label').textContent = 'Contents: ' + packageData.Label;
-        document.getElementById('status').textContent = 'Status: ' + packageData.Status;
-        document.getElementById('delivered').textContent = 'Delivered: ' + packageData.Delivered;
-        document.getElementById('trackerID').textContent = 'TrackerID: ' + packageData.TrackerID;
-        return packageData;
+
+        setTimeout(() => {
+            const packageData = packages.find(({TrackerID}) => TrackerID === input);
+            descPackage.textContent = 'Package details: ';
+            descPackage.setAttribute('id', 'desc');
+            document.getElementById('firstName').textContent = 'First name: ' + packageData.FirstName;
+            document.getElementById('label').textContent = 'Contents: ' + packageData.Label;
+            document.getElementById('status').textContent = 'Status: ' + packageData.Status;
+            document.getElementById('delivered').textContent = 'Delivered: ' + packageData.Delivered;
+            document.getElementById('trackerID').textContent = 'TrackerID: ' + packageData.TrackerID;
+            return packageData;
+        
+        }, 3000);
+
     } else {
-        document.getElementById('desc').textContent = 'Package not found.';
-        document.getElementById('firstName').textContent = '';
-        document.getElementById('label').textContent = '';
-        document.getElementById('status').textContent = 'Try again or contact support for help.';
-        document.getElementById('delivered').textContent = '';
-        document.getElementById('trackerID').textContent = '';
+        setTimeout(() => {
+            descPackage.textContent = 'Package not found.';
+            descPackage.setAttribute('id', 'desc');
+            document.getElementById('firstName').textContent = '';
+            document.getElementById('label').textContent = '';
+            document.getElementById('status').textContent = 'Try again or contact support for help.';
+            document.getElementById('delivered').textContent = '';
+            document.getElementById('trackerID').textContent = '';
+        }, 3000);      
     }
+};
+
+// function to show and hide loading bar
+
+
+// function onLoadStyle() {
+//     document.querySelector('#progress-container').style.display='none';
+//     document.querySelector('#progress-bar').style.display='none';
+// }
+
+let restartButton = document.querySelector('#restartAnimation');
+restartButton.addEventListener('click', restartAnimation, false);
+
+function restartAnimation(event) {
+    const progressBar = document.querySelector('.progress-bar');
+
+    progressBar.setAttribute('id', 'filler');
+    document.getElementById('#progress-container').style.display='';
+    document.getElementsByClassName('#progress-bar').style.display='';
+    
+
+    requestAnimationFrame(() => {
+        progressBar.setAttribute('id', 'play-animation');
+
+        setTimeout(() => {
+            progressBarContainer.style.display='none';
+            progressBarLoading.style.display='none';
+        }, 3000);
+    })
 };
