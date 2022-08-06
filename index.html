@@ -13,6 +13,7 @@
     <script src="app.js" defer></script>
     <section class="fill-page">
         <nav>
+
             <h1>Package Tracker</h1>
             <div class="nav-links dropdown" data-dropdown>
                 <a href="#" class="link" data-dropdown-link>About</a>
@@ -55,6 +56,7 @@
 
             </div>
             </div>
+            
             </div>
         </nav>
 
@@ -62,12 +64,15 @@
             <div id="search">
                 <label for="trackerDescription">Write your TrackerID (full or last 4).</label><br>
                 <input type="text" placeholder="Enter shipment #id" id="trackerInput" minlength="4" maxlength="13">
-                <button onclick="trackPackage()">Track Package</button>
+                <button onclick="trackPackage()" id="restartAnimation">Track Package</button>
             </div>
         </div>
 
         <div id="trackerContainer">
-            <p id="desc">Input your trackerID for package details.</p>
+            <div id="progress-container">
+                <div id="progress-bar"></div>
+            </div>
+            <p id="desc" class="text-loading">Input your trackerID for package details.</p>
             <p id="firstName"></p>
             <p id="label"></p>
             <p id="status"></p>
@@ -81,11 +86,11 @@
         </article>
 
         <footer>
-            COPYRIGHT &copy; 2022
+            COPYRIGHT Johan Hellberg &copy; 2022
         </footer>
 
     </section>
-
+    <body onload="onLoadStyle()"></body>
 </body>
 
 </html>
