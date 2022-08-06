@@ -40,6 +40,53 @@ h1 {
     text-shadow: 2px 4px 6px #000;
 }
 
+.dropdown.active > .link,
+.link:hover {
+    color: #FAF9F6;
+}
+
+.dropdown {
+    position: relative;
+}
+
+.about {
+    width: max-content;
+}
+
+/* .dropdown-heading {
+    
+} */
+
+.dropdown-packages {
+    font-weight: 300;
+}
+
+.packages-grid {
+    display: grid;
+    grid-template-columns: repeat(2, max-content);
+    gap: 2rem;
+}
+
+.dropdown-menu {
+    position: absolute;
+    right: 0;
+    top: calc(0 + .4rem);
+    background-color: #264653;
+    padding: .75rem;
+    border-radius: .25rem;
+    box-shadow: 2px 4px 2px 1px rgba(0, 0, 0, .4);
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-10px);
+    transition: opacity 150ms ease-in-out, transform 150ms ease-in-out;
+}
+
+.dropdown.active > .link + .dropdown-menu {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
 
 main {
     background-color: #FAF9F6;
@@ -64,6 +111,22 @@ main {
 }
 
 #desc {font-weight: 700;}
+
+.github-link {
+    text-decoration: underline;
+    text-shadow: none;
+}
+
+.dropdown-heading {
+    font-size: medium;
+    text-shadow: none;
+}
+
+.div > p {
+    font-size: small;
+    font-weight: 300;
+    text-shadow: none;
+}
 
 button, input {
     background-color: #FAF9F6;

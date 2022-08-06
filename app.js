@@ -1,5 +1,21 @@
 'use strict';
 
+document.addEventListener("click", e => {
+    const isDropdownButton = e.target.matches("[data-dropdown-link]");
+    if (!isDropdownButton && e.target.closest("[data-dropdown]") != null) return;
+  
+    let currentDropdown;
+    if (isDropdownButton) {
+      currentDropdown = e.target.closest("[data-dropdown]");
+      currentDropdown.classList.toggle("active");
+    }
+  
+    document.querySelectorAll("[data-dropdown].active").forEach(dropdown => {
+      if (dropdown === currentDropdown) return;
+      dropdown.classList.remove("active");
+    });
+  });
+
 const packages = [
     {
         FirstName: 'John',
@@ -23,7 +39,7 @@ const packages = [
         Delivered: true
     },
     {
-        FirstName: 'Sandra',
+        FirstName: 'Sophie',
         Label: 'Toys 4 kids',
         Status: 'Handling...',
         TrackerID: 12345678904,
@@ -79,21 +95,30 @@ function trackPackage(input) {
     let lastFourResult = filteredPackages;
 
     if (packages.find(({TrackerID}) => TrackerID === input)) {
-        const packageData = packages.find(({TrackerID}) => TrackerID === input);
-        document.getElementById('desc').textContent = 'Package details: ';
-        document.getElementById('firstName').textContent = 'First name: ' + packageData.FirstName;
-        document.getElementById('label').textContent = 'Contents: ' + packageData.Label;
-        document.getElementById('status').textContent = 'Status: ' + packageData.Status;
-        document.getElementById('delivered').textContent = 'Delivered: ' + packageData.Delivered;
-        document.getElementById('trackerID').textContent = 'TrackerID: ' + packageData.TrackerID;
-        return packageData;
+
+        setTimeout(() => {
+            const packageData = packages.find(({TrackerID}) => TrackerID === input);
+            descPackage.textContent = 'Package details: ';
+            descPackage.setAttribute('id', 'desc');
+            document.getElementById('firstName').textContent = 'First name: ' + packageData.FirstName;
+            document.getElementById('label').textContent = 'Contents: ' + packageData.Label;
+            document.getElementById('status').textContent = 'Status: ' + packageData.Status;
+            document.getElementById('delivered').textContent = 'Delivered: ' + packageData.Delivered;
+            document.getElementById('trackerID').textContent = 'TrackerID: ' + packageData.TrackerID;
+            return packageData;
+        
+        }, 3000);
+
     } else {
-        document.getElementById('desc').textContent = 'Package not found.';
-        document.getElementById('firstName').textContent = '';
-        document.getElementById('label').textContent = '';
-        document.getElementById('status').textContent = 'Try again or contact support for help.';
-        document.getElementById('delivered').textContent = '';
-        document.getElementById('trackerID').textContent = '';
+        setTimeout(() => {
+            descPackage.textContent = 'Package not found.';
+            descPackage.setAttribute('id', 'desc');
+            document.getElementById('firstName').textContent = '';
+            document.getElementById('label').textContent = '';
+            document.getElementById('status').textContent = 'Try again or contact support for help.';
+            document.getElementById('delivered').textContent = '';
+            document.getElementById('trackerID').textContent = '';
+        }, 3000);      
     }
 
     document.getElementById('desc').textContent = 'Package details: ';
