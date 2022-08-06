@@ -53,6 +53,14 @@ h1 {
     width: max-content;
 }
 
+/* .dropdown-heading {
+    
+} */
+
+.dropdown-packages {
+    font-weight: 300;
+}
+
 .packages-grid {
     display: grid;
     grid-template-columns: repeat(2, max-content);
