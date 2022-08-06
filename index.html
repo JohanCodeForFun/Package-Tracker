@@ -13,16 +13,56 @@
     <script src="app.js" defer></script>
     <section class="fill-page">
         <nav>
-            <h1>Welcome to Package Tracker </h1>
-            <div class="nav-links">
-                <a href="#">About</a>
-                <a href="#">Package</a>
+
+            <h1>Package Tracker</h1>
+            <div class="nav-links dropdown" data-dropdown>
+                <a href="#" class="link" data-dropdown-link>About</a>
+                <div class="dropdown-menu about">
+                    <div class="dropdown-heading">Personal project to learn more about: </div>
+                    <div class="dropdown-project-info">
+                        <p>+ JavaScript Algorithms</p>
+                        <p>+ JavaScript Data Structures</p>
+                        <p>+ DOM manipulation</p>
+                        <p>+ Practice creating advanced projects</p>
+                        <p>Link to github, <a href="https://github.com/JohanCodeForFun" class="github-link">JohanCodeForFun</a></p>
+                    </div>
+
+                </div>
+            </div>
+            <div class="nav-links dropdown" data-dropdown>
+                <a href="#" class="link" data-dropdown-link>Packages</a>
+                <div class="dropdown-menu packages-grid" data-dropdown>
+                    <div>
+                        <div class="dropdown-heading">Name:</div>
+                        <div class="dropdown-packages-names">
+                            <p>John</p>
+                            <p>Charlie</p>
+                            <p>Sophie</p>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="dropdown-heading">TrackerID: </div>
+                        <div class="dropdown-packages-data">
+                            <p>... 8901</p>
+                            <p>... 8902</p>
+                            <p>... 8904</p>
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+
+            </div>
+            </div>
+            
             </div>
         </nav>
 
         <div id="searchContainer">
             <div id="search">
-                <label for="trackerDescription">Write your shipment id (full or last 4).</label><br>
+                <label for="trackerDescription">Write your TrackerID (full or last 4).</label><br>
                 <input type="text" placeholder="Enter shipment #id" id="trackerInput" minlength="4" maxlength="13">
                 <button onclick="trackPackage()" id="restartAnimation">Track Package</button>
             </div>
@@ -41,7 +81,7 @@
         </div>
 
         <article>
-            <H3>Is your package late?</H3>
+            <H3>Is your package missing?</H3>
             <p>Please contact our customer support for help.</p>
         </article>
 
