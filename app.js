@@ -39,7 +39,7 @@ const packages = [
         Delivered: true
     },
     {
-        FirstName: 'Sandra',
+        FirstName: 'Sophie',
         Label: 'Toys 4 kids',
         Status: 'Handling...',
         TrackerID: 12345678904,

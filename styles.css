@@ -112,6 +112,22 @@ main {
 
 #desc {font-weight: 700;}
 
+.github-link {
+    text-decoration: underline;
+    text-shadow: none;
+}
+
+.dropdown-heading {
+    font-size: medium;
+    text-shadow: none;
+}
+
+.div > p {
+    font-size: small;
+    font-weight: 300;
+    text-shadow: none;
+}
+
 button, input {
     background-color: #FAF9F6;
     padding: 0.8em;
