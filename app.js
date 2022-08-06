@@ -103,13 +103,3 @@ function trackPackage(input) {
     document.getElementById('delivered').textContent = 'Delivered: ' + lastFourResult.Delivered;
     document.getElementById('trackerID').textContent = 'TrackerID: ' + lastFourResult.TrackerID;
 };
-
-// // practice regex
-// let str1 = "God helps those who help themselves";
-// let str2 = "You can't expect everyone to like you";
-// let num = 121134;
-// let testRegex = /help/;
-// let testRegex2 = /\d{4}$/
-// console.log(testRegex.test(str1)); //returns true
-// console.log(testRegex.test(str2)); //returns false
-// console.log('last4: ' + testRegex2.test(packages.TrackerID));
