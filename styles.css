@@ -49,6 +49,16 @@ h1 {
     position: relative;
 }
 
+.about {
+    width: max-content;
+}
+
+.packages-grid {
+    display: grid;
+    grid-template-columns: repeat(2, max-content);
+    gap: 2rem;
+}
+
 .dropdown-menu {
     position: absolute;
     right: 0;
