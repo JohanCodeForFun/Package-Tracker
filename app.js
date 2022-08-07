@@ -1,5 +1,10 @@
 'use strict';
 
+function onLoadStyle() {
+    document.querySelector('.progress-container').style.display = 'none';
+    document.querySelector('.progress-bar').style.display = 'none';
+}
+
 document.addEventListener("click", e => {
     const isDropdownButton = e.target.matches("[data-dropdown-link]");
     if (!isDropdownButton && e.target.closest("[data-dropdown]") != null) return;
@@ -143,31 +148,26 @@ function trackPackage(input) {
     }, 3000);
 };
 
-// function to show and hide loading bar
-
-
-function onLoadStyle() {
-    document.querySelector('#progress-container').style.display = 'none';
-    document.querySelector('#progress-bar').style.display = 'none';
-}
-
-let restartButton = document.querySelector('#restartAnimation');
+const restartButton = document.querySelector('#restartAnimation');
 restartButton.addEventListener('click', restartAnimation, false);
 
 function restartAnimation(event) {
-    const progressBar = document.querySelector('#progress-bar');
+    const progressBar = document.querySelector('.progress-bar');
+    const progressContainer = document.querySelector('.progress-container');
 
-    // progressBar.setAttribute('id', 'filler', null);
-    document.getElementById('#progress-container').style.display = 'block';
-    document.getElementById('#progress-bar').style.display = 'block';
+    progressBar.style.display = 'block';
+    progressContainer.style.display = 'block';
 
+    progressBar.setAttribute('id', 'play-animation');
 
     requestAnimationFrame(() => {
         progressBar.setAttribute('id', 'play-animation');
+        progressBar.style.display = 'block';
+        progressContainer.style.vis = 'block';
 
         setTimeout(() => {
-            progressBarContainer.style.display = 'none';
-            progressBarLoading.style.display = 'none';
+            progressBar.style.display = 'none';
+            progressContainer.style.display = 'none';
         }, 3000);
     });
 };
