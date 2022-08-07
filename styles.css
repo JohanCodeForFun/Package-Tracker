@@ -147,11 +147,13 @@ button, input {
     height: 100%;
     background-color: #e76f51;
     border-radius: 6px;
+    /* animation: progress-animation 2.5s forwards; */
 }
 
 
 #play-animation {animation: progress-animation 2.5s forwards;}
-#play-loading   {animation: text-animation 1.2s ease-in-out infinite;
+
+#play-loading {animation: text-animation 1.2s ease-in-out infinite;
 font-weight: 700;}
 
 @keyframes progress-animation {
