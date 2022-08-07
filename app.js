@@ -100,7 +100,7 @@ function trackPackage(input) {
     document.getElementById('delivered').textContent = '';
 
     const descPackage = document.getElementById('desc')
-    descPackage.textContent = 'Searching package...';
+    descPackage.textContent = 'Searching for your package...';
     descPackage.setAttribute('id', 'play-loading');
 
     const filteredPackages = packages.find(x => {
