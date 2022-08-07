@@ -96,8 +96,8 @@ function trackPackage(input) {
     document.getElementById('status').textContent = '';
     document.getElementById('firstName').textContent = '';
     document.getElementById('label').textContent = '';
-    document.getElementById('delivered').textContent = '';
     document.getElementById('trackerID').textContent = '';
+    document.getElementById('delivered').textContent = '';
 
     const descPackage = document.getElementById('desc')
     descPackage.textContent = 'Searching package...';
