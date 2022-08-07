@@ -155,11 +155,11 @@ let restartButton = document.querySelector('#restartAnimation');
 restartButton.addEventListener('click', restartAnimation, false);
 
 function restartAnimation(event) {
-    const progressBar = document.querySelector('.progress-bar');
+    const progressBar = document.querySelector('#progress-bar');
 
-    progressBar.setAttribute('id', 'filler');
-    document.getElementById('#progress-container').style.display = '';
-    document.getElementsByClassName('#progress-bar').style.display = '';
+    // progressBar.setAttribute('id', 'filler', null);
+    document.getElementById('#progress-container').style.display = 'block';
+    document.getElementById('#progress-bar').style.display = 'block';
 
 
     requestAnimationFrame(() => {
