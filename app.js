@@ -117,12 +117,33 @@ function trackPackage(input) {
         });
         var packageData = filteredPackages;
 
+        setTimeout(() => {
+            descPackage.textContent = 'Package details: ';
+            descPackage.setAttribute('id', 'desc');
+            FNtextContent.textContent = 'First name: ' + packageData.FirstName;
+            LabeltextContent.textContent = 'Contents: ' + packageData.Label;
+            StatustextContent.textContent = 'Status: ' + packageData.Status;
+            DeliveredtextContent.textContent = 'Delivered: ' + packageData.Delivered;
+            TrackerIDtextContent.textContent = 'TrackerID: ' + packageData.TrackerID;
+        }, 3000);
+
+
     } else if (input.length === 11) {
         const FullPackages = packages.find(x => {
             const id = x.TrackerID;
             return id === parseInt(input);
         });
         var packageData = FullPackages;
+
+        setTimeout(() => {
+            descPackage.textContent = 'Package details: ';
+            descPackage.setAttribute('id', 'desc');
+            FNtextContent.textContent = 'First name: ' + packageData.FirstName;
+            LabeltextContent.textContent = 'Contents: ' + packageData.Label;
+            StatustextContent.textContent = 'Status: ' + packageData.Status;
+            DeliveredtextContent.textContent = 'Delivered: ' + packageData.Delivered;
+            TrackerIDtextContent.textContent = 'TrackerID: ' + packageData.TrackerID;
+        }, 3000);
 
     } else {
         setTimeout(() => {
@@ -133,18 +154,9 @@ function trackPackage(input) {
             StatustextContent.textContent = 'Try again or contact support for help.';
             DeliveredtextContent.textContent = '';
             TrackerIDtextContent.textContent = '';
+            return;
         }, 3000);
     }
-
-    setTimeout(() => {
-        descPackage.textContent = 'Package details: ';
-        descPackage.setAttribute('id', 'desc');
-        FNtextContent.textContent = 'First name: ' + packageData.FirstName;
-        LabeltextContent.textContent = 'Contents: ' + packageData.Label;
-        StatustextContent.textContent = 'Status: ' + packageData.Status;
-        DeliveredtextContent.textContent = 'Delivered: ' + packageData.Delivered;
-        TrackerIDtextContent.textContent = 'TrackerID: ' + packageData.TrackerID;
-    }, 3000);
 };
 
 const restartButton = document.querySelector('#restartAnimation');
