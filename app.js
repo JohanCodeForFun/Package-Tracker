@@ -115,13 +115,15 @@ function trackPackage(input) {
             const lastFourDigits = id.slice(-4);
             return Number(lastFourDigits) === parseInt(input);
         });
-
         var packageData = filteredPackages;
 
-
     } else if (input.length === 11) {
-        const packageData = packages.find(({ TrackerID }) => TrackerID === parseInt(input))
-        return packageData;
+        const FullPackages = packages.find(x => {
+            const id = x.TrackerID;
+            return id === parseInt(input);
+        });
+        var packageData = FullPackages;
+
     } else {
         setTimeout(() => {
             descPackage.textContent = 'Package not found.';
