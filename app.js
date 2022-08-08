@@ -21,6 +21,14 @@ document.addEventListener("click", e => {
     });
 });
 
+const enterDown = document.getElementById('trackerInput');
+enterDown.addEventListener('keypress', function(event) {
+    if (event.key === 'Enter') {
+        trackPackage();
+        restartAnimation();
+    }
+});
+
 const packages = [
     {
         FirstName: 'John',
@@ -86,7 +94,6 @@ const packages = [
         Delivered: false
     }
 ];
-
 
 function trackPackage(input) {
     input = document.getElementById('trackerInput').value;
