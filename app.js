@@ -110,26 +110,17 @@ function trackPackage(input) {
     descPackage.setAttribute('id', 'play-loading');
 
     if (input.length === 4) {
-        console.log(input);
-        console.log(typeof input);
-
         const filteredPackages = packages.find(x => {
             const id = x.TrackerID.toString();
             const lastFourDigits = id.slice(-4);
-            return Number(lastFourDigits) === input;
+            return Number(lastFourDigits) === parseInt(input);
         });
 
-        const packageData = filteredPackages;
-
-        console.log(typeof packageData);
+        var packageData = filteredPackages;
 
 
     } else if (input.length === 11) {
-        console.log(input);
-        console.log(typeof input);
-        const packageData = packages.find(({ TrackerID }) => TrackerID === input)
-        console.log(packageData);
-        console.log(typeof packageData);
+        const packageData = packages.find(({ TrackerID }) => TrackerID === parseInt(input))
         return packageData;
     } else {
         setTimeout(() => {
