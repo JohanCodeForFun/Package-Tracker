@@ -21,6 +21,14 @@ document.addEventListener("click", e => {
     });
 });
 
+const enterDown = document.getElementById('trackerInput');
+enterDown.addEventListener('keypress', function(event) {
+    if (event.key === 'Enter') {
+        trackPackage();
+        restartAnimation();
+    }
+});
+
 const packages = [
     {
         FirstName: 'John',
@@ -87,65 +95,75 @@ const packages = [
     }
 ];
 
-
 function trackPackage(input) {
-    input = +document.getElementById('trackerInput').value;
+    input = document.getElementById('trackerInput').value;
 
+    let StatustextContent = document.getElementById('status');
+    let FNtextContent = document.getElementById('firstName');
+    let LabeltextContent = document.getElementById('label');
+    let TrackerIDtextContent = document.getElementById('trackerID');
+    let DeliveredtextContent = document.getElementById('delivered');
 
-    //reset fields with multiple searches
-    document.getElementById('status').textContent = '';
-    document.getElementById('firstName').textContent = '';
-    document.getElementById('label').textContent = '';
-    document.getElementById('trackerID').textContent = '';
-    document.getElementById('delivered').textContent = '';
+    // clear fields between search results
+    StatustextContent.textContent = ' ';
+    FNtextContent.textContent = ' ';
+    LabeltextContent.textContent = ' ';
+    TrackerIDtextContent.textContent = ' ';
+    DeliveredtextContent.textContent = '';
+
 
     const descPackage = document.getElementById('desc')
     descPackage.textContent = 'Searching for your package...';
     descPackage.setAttribute('id', 'play-loading');
 
-    const filteredPackages = packages.find(x => {
-        const id = x.TrackerID.toString();
-        const lastFourDigits = id.slice(-4);
-        return Number(lastFourDigits) === input;
-    });
-
-    let lastFourResult = filteredPackages;
-
-    if (packages.find(({ TrackerID }) => TrackerID === input)) {
+    if (input.length === 4) {
+        const filteredPackages = packages.find(x => {
+            const id = x.TrackerID.toString();
+            const lastFourDigits = id.slice(-4);
+            return Number(lastFourDigits) === parseInt(input);
+        });
+        var packageData = filteredPackages;
 
         setTimeout(() => {
-            const packageData = packages.find(({ TrackerID }) => TrackerID === input);
             descPackage.textContent = 'Package details: ';
             descPackage.setAttribute('id', 'desc');
-            document.getElementById('firstName').textContent = 'First name: ' + packageData.FirstName;
-            document.getElementById('label').textContent = 'Contents: ' + packageData.Label;
-            document.getElementById('status').textContent = 'Status: ' + packageData.Status;
-            document.getElementById('delivered').textContent = 'Delivered: ' + packageData.Delivered;
-            document.getElementById('trackerID').textContent = 'TrackerID: ' + packageData.TrackerID;
-            return packageData;
+            FNtextContent.textContent = 'First name: ' + packageData.FirstName;
+            LabeltextContent.textContent = 'Contents: ' + packageData.Label;
+            StatustextContent.textContent = 'Status: ' + packageData.Status;
+            DeliveredtextContent.textContent = 'Delivered: ' + packageData.Delivered;
+            TrackerIDtextContent.textContent = 'TrackerID: ' + packageData.TrackerID;
+        }, 3000);
 
+
+    } else if (input.length === 11) {
+        const FullPackages = packages.find(x => {
+            const id = x.TrackerID;
+            return id === parseInt(input);
+        });
+        var packageData = FullPackages;
+
+        setTimeout(() => {
+            descPackage.textContent = 'Package details: ';
+            descPackage.setAttribute('id', 'desc');
+            FNtextContent.textContent = 'First name: ' + packageData.FirstName;
+            LabeltextContent.textContent = 'Contents: ' + packageData.Label;
+            StatustextContent.textContent = 'Status: ' + packageData.Status;
+            DeliveredtextContent.textContent = 'Delivered: ' + packageData.Delivered;
+            TrackerIDtextContent.textContent = 'TrackerID: ' + packageData.TrackerID;
         }, 3000);
 
     } else {
         setTimeout(() => {
             descPackage.textContent = 'Package not found.';
             descPackage.setAttribute('id', 'desc');
-            document.getElementById('firstName').textContent = '';
-            document.getElementById('label').textContent = '';
-            document.getElementById('status').textContent = 'Try again or contact support for help.';
-            document.getElementById('delivered').textContent = '';
-            document.getElementById('trackerID').textContent = '';
+            FNtextContent.textContent = '';
+            LabeltextContent.textContent = '';
+            StatustextContent.textContent = 'Try again or contact support for help.';
+            DeliveredtextContent.textContent = '';
+            TrackerIDtextContent.textContent = '';
+            return;
         }, 3000);
-    };
-
-    setTimeout(() => {
-        document.getElementById('desc').textContent = 'Package details: ';
-        document.getElementById('firstName').textContent = 'First name: ' + lastFourResult.FirstName;
-        document.getElementById('label').textContent = 'Contents: ' + lastFourResult.Label;
-        document.getElementById('status').textContent = 'Status: ' + lastFourResult.Status;
-        document.getElementById('delivered').textContent = 'Delivered: ' + lastFourResult.Delivered;
-        document.getElementById('trackerID').textContent = 'TrackerID: ' + lastFourResult.TrackerID;
-    }, 3000);
+    }
 };
 
 const restartButton = document.querySelector('#restartAnimation');
@@ -160,14 +178,8 @@ function restartAnimation(event) {
 
     progressBar.setAttribute('id', 'play-animation');
 
-    requestAnimationFrame(() => {
-        progressBar.setAttribute('id', 'play-animation');
-        progressBar.style.display = 'block';
-        progressContainer.style.vis = 'block';
-
-        setTimeout(() => {
-            progressBar.style.display = 'none';
-            progressContainer.style.display = 'none';
-        }, 3000);
-    });
+    setTimeout(() => {
+        progressBar.style.display = 'none';
+        progressContainer.style.display = 'none';
+    }, 3000);
 };
