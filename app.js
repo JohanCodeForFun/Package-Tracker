@@ -116,7 +116,18 @@ function trackPackage(input) {
     descPackage.textContent = 'Searching for your package...';
     descPackage.setAttribute('id', 'play-loading');
 
-    if (input.length === 4) {
+    if (input.value === isNaN) {
+        setTimeout(() => {
+            descPackage.textContent = 'Package not found.';
+            descPackage.setAttribute('id', 'desc');
+            FNtextContent.textContent = '';
+            LabeltextContent.textContent = '';
+            StatustextContent.textContent = 'Try again with only trackerID.';
+            DeliveredtextContent.textContent = '';
+            TrackerIDtextContent.textContent = '';
+            return;
+        }, 3000);
+    } else if (input.length === 4) {
         const filteredPackages = packages.find(x => {
             const id = x.TrackerID.toString();
             const lastFourDigits = id.slice(-4);
