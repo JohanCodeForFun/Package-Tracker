@@ -1,5 +1,6 @@
 # Package Tracker
-<a href="https://jhellberg.com/portfolio/package-tracker/index.html">Live website</a>
+[Live Website](https://jhellberg.com/portfolio/package-tracker/index.html "Live Website")
+
 
 
 <img width="1440" alt="screenshot of package tracker app" src="https://jhellberg.com/images/git-package-tracker.jpg">
